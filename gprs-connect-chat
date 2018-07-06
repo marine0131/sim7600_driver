@@ -1,0 +1,16 @@
+#Chat script for China Mobile, used SIMCOM sim7100 LTE module.
+TIMEOUT 15
+ABORT "DELAYED"
+ABORT "BUSY"
+ABORT "ERROR"
+ABORT "NO DIALTONE"
+ABORT "NO CARRIER"
+TIMEOUT 40
+'' \rAT
+OK at+cpin?
+OK at+csq
+OK at+cops?
+OK at+cgatt?
+OK AT+cgdcont=1,"IP","CMNET"
+OK ATD*99***1#
+CONNECT

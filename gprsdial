@@ -1,0 +1,12 @@
+/dev/ttyUSB2
+115200
+crtscts
+modem
+debug
+nodetach
+usepeerdns
+noipdefault
+defaultroute
+user "cmnet"
+0.0.0.0:0.0.0.0
+connect '/usr/sbin/chat -s -v -f /etc/ppp/gprs-connect-chat'
