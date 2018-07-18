@@ -14,13 +14,21 @@ def detect_route():
 	    for ll in f.readlines():
 		route.append(ll.split())
 
-	if len(route) > 2 and route[0][4]=='eth0':
+        if len(route) == 0:
+            print "no route detected"
+            return 0
+
+	elif route[0][4]=='eth0':
 	    # get ppp0 dev but default is not ppp0
 	    print(route)
 	    print "set ppp0 as default"
 	    sp.call('sudo ip route change to default dev ppp0', shell=True)
 
 	elif len(route) <= 2:
+            for r in route:
+                if 'ppp0' in r:
+                    print('test ok')
+                    return 0
 	    # ppp0 dev not found
 	    print route
 	    print "restart ppp startup.sh"
@@ -30,6 +38,7 @@ def detect_route():
 	    return 0
 
 if __name__ == "__main__":
+        time.sleep(30)
 	while True:
 		print("time: ", time.strftime('%Y-%m-%d,%H:%M:%S',time.localtime(time.time())))
 		detect_route()
