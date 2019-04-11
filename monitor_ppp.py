@@ -33,4 +33,4 @@ if __name__ == "__main__":
 	while True:
 		print("time: ", time.strftime('%Y-%m-%d,%H:%M:%S',time.localtime(time.time())))
 		detect_route()
-		time.sleep(300)
+		time.sleep(30)
